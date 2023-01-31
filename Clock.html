@@ -4,7 +4,6 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="styles.css" />
 	
 	<Title>Clock</Title>
 	<style>
@@ -26,7 +25,7 @@
 			height: 30rem;
 			position: relative;
 			padding: 2rem;
-			border: 7px solid #282828;
+			border: 7px solid #bdbdcb;
 			box-shadow: -4px -4px 10px rgba(67,67,67,0.5),
 						inset 4px 4px 10px rgba(0,0,0,0.5),
 						inset -4px -4px 10px rgba(67,67,67,0.5),
@@ -54,7 +53,7 @@
 			position: absolute;
 			width: 5px;
 			height: 100%;
-			background: #1df52f;
+			background: #fd0000;
 			z-index: 0;
 			left: 49%;
 		}
@@ -128,7 +127,7 @@
 			width: 40%;
 		}
 		.hand.second-hand {
-			background: #ee791a;
+			background: white;
 			width: 45%;
 			height: 2px;
 		}
@@ -151,12 +150,14 @@
 </div>
 
 	<script>
+		//assign a variable for each hand of the clock
 	const secondHand = document.querySelector('.second-hand');
 	const minsHand = document.querySelector('.min-hand');
 	const hourHand = document.querySelector('.hour-hand');
+	// set the current date/time to a variable 
 	function setDate() {
  		const now = new Date();
-		
+		// divide each part of the time into its respective portions of the clock and set the hand variable to that position update every second
 		 const seconds = now.getSeconds();
   const secondsDegrees = ((seconds / 60) * 360) + 90;
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
@@ -170,7 +171,7 @@
 		hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 	}
 	setInterval(setDate, 1000);
-
+	//run setDate to start application
 	setDate();
 	</script>
 </body>
